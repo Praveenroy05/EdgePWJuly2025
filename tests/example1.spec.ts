@@ -17,12 +17,25 @@ import {test, expect} from '@playwright/test';
 
 // jar --> Packages (Modules) --> classes --> methods --> Logic
 
-test.only('get started link1',  async function({ page }){
+test('get started link1',  async function({ page }){
   await page.goto('https://playwright.dev/');
   await console.log("Launching is successfull");
   await page.getByRole('link', { name: 'Get started' }).click();
   await console.log("Clicked on");
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible
+  ();
+
+  await expect(page.getByRole('heading', { name: 'Sign up' , exact: true })).toBeVisible();
+
+// CSS and XPATH
+  await page.locator("#input").last().locator("")
+
+  // await page.getByAltText()
+// sign up, sign ups
+
+
+page.getByLabel("Password", {exact: true}).getByText("aghgjk")
+
 });
 
 test('Validate login with valid credentials', async function ({browser}){
@@ -47,5 +60,8 @@ test('Validate login with valid credentials', async function ({browser}){
 // css selectors 
 // xpath 
 // getBy specific locators - playwright 
+
+
+
 
 

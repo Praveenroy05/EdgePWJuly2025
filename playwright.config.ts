@@ -23,6 +23,10 @@ export default defineConfig({
   workers: process.env.CI ? 5 : 5, // By default it will start 8 TCs in a parallel way
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+  // timeout : 60000,
+  // expect:{
+  //   timeout:10000
+  // },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -99,3 +103,13 @@ export default defineConfig({
 // Scenario - 4 :
 // FullyParallel - false
 // Workers - 1  - In this case 1 TEST FILES will start execution at the same time
+
+
+// Test file Identification - by checking the extension as filename.spec.ts OR
+// filename.test.ts 
+
+
+// Configurations are of 3 types
+// 1. Global config - playwright.config.ts
+// 2. Test file config - test file itself
+// 3. Test Step configuration
