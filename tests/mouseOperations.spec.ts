@@ -26,3 +26,39 @@ test("Double click and right click validation", async ({page})=>{
 })
 
 
+test("Drag and drop handling", async ({page})=>{
+    await page.goto("https://testautomationpractice.blogspot.com/")
+    // Drag and Drop
+    // Identify the draggable element
+    // Identify the drop place
+    // Move to the draggable element and perform mouse down and hold it
+    // Move to the drop place and perform mouse up
+
+    const source = page.locator("div#draggable")
+    const target = page.locator("div#droppable")
+
+    // dragTo(Locator)
+    //await source.dragTo(target)
+
+    await source.hover() // Hover on an element
+    await page.mouse.down() // Do a mouse down
+    await target.hover() // perform a hover on target element
+    await page.mouse.up() // Release the mouse down
+
+    await expect(target).toContainText("Dropped!")
+
+})
+
+
+test("Scroll down", async ({page})=>{
+    await page.goto("https://testautomationpractice.blogspot.com/")
+    // scrollIntoViewIfneeded()
+    await page.getByText("Download Files").scrollIntoViewIfNeeded()
+    await page.getByText("Download Files").click()
+    await expect(page.getByText("Download a Text or PDF File")).toBeVisible()
+})
+
+
+
+
+
