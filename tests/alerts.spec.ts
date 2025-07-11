@@ -32,6 +32,7 @@ test("Confirm alerts Handling", async ({page})=>{
 
     await page.locator("#confirmButton").click()
     await expect(page.locator("#confirmResult")).toHaveText("You selected Cancel")
+    
 })
 
 
@@ -46,6 +47,7 @@ test("Prompt alerts Handling", async ({page})=>{
     await page.locator("#promtButton").click()
     await expect(page.locator("#promptResult")).toHaveText("You entered test")
 })
+
 
 
 
