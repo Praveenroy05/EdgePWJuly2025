@@ -13,11 +13,12 @@
 import {test, expect} from '@playwright/test'
 import path from 'path'
 import fs from 'fs'
+import pdfParse from 'pdf-parse'
 
 test("Download file handling", async ({page})=>{
     await page.goto("https://testautomationpractice.blogspot.com/p/download-files_25.html")
     await page.locator("#generatePdf").click()
-    const downloadResult = await page.waitForEvent('download') // Pending, successful, 
+    const downloadResult =  page.waitForEvent('download') // Pending, successful, 
     // Rejected
     await page.locator("#pdfDownloadLink").click()
 
@@ -41,5 +42,13 @@ test("Download file handling", async ({page})=>{
 
     await expect(fs.existsSync(filePath)).toBeTruthy()
     await expect(filePath).toContain(fileName)
+
+  const pdfBuffer = fs.readFileSync(filePath);
+  const pdfData = await pdfParse(pdfBuffer);
+
+  console.log("PDF Contents:");
+  console.log(pdfData.text);
+
+  expect(pdfData.text).toContain("Expected text inside the PDF");
 
 })
