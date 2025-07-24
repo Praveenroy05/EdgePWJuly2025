@@ -58,7 +58,7 @@ test("Radio button and checkbox validation", async ({page})=>{
 
 })
 
-test.only("Get text from an element", async ({page})=>{
+test("Get text from an element", async ({page})=>{
     await page.goto("https://testautomationpractice.blogspot.com/")
 
     //first()
