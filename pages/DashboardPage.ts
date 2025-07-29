@@ -3,8 +3,7 @@ export class DashboardPage{
     private page
     private products
     addToCartSuccessMsg
-    private viewBtn
-    private addToCartBtn
+    viewProductName
 
     // 1. Identify the parent element which consists of all the details of the product
     // 2. Iterate through all the products and get the text value of the product.
@@ -18,6 +17,7 @@ export class DashboardPage{
         this.page = page
         this.products = this.page.locator("div.card-body")
         this.addToCartSuccessMsg = this.page.locator("#toast-container") 
+        this.viewProductName = this.page.locator("div.row h2")
     }
 
     async searchProductAndAddToCart(productName){
@@ -34,9 +34,17 @@ export class DashboardPage{
         }
     }
 
+    async searchProductAndViewDetails(productName){
+        await this.products.nth(0).waitFor()
+        // count()
+        const countOfProduct = await this.products.count() // 3 [0,1,2]
+        for(let i=0; i<countOfProduct ; i++){
+            const textValue = await this.products.nth(i).locator("b").textContent()
 
-
-
-
-
+            if(textValue === productName){
+                await this.products.nth(i).locator("button").first().click()
+                break
+            }
+        }
+    }
 }
