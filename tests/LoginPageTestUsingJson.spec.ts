@@ -11,17 +11,17 @@ test.beforeEach(async ({page})=>{
     await loginPage.launchURL(loginData.url)
 })
 
+test.describe("Login Page Test", ()=>{
+    test("@smoke Valid login scenario", async ({})=>{
+        await loginPage.loginIntoApplication(loginData.username, loginData.password)
+        await expect(loginPage.homePageIdentifier).toBeVisible()
+    })
 
-test("Valid login scenario", async ({})=>{
-    await loginPage.loginIntoApplication(loginData.username, loginData.password)
-    await expect(loginPage.homePageIdentifier).toBeVisible()
+    test("@smoke @regression invalid login scenario", async ({})=>{
+        await loginPage.invalidLogin(loginData.username, loginData.incorrectPassword)
+        await expect(loginPage.errorMessage).toContainText("Incorrect email or password.")
+    })
 })
-
-test("invalid login scenario", async ({})=>{
-    await loginPage.invalidLogin(loginData.username, loginData.incorrectPassword)
-    await expect(loginPage.errorMessage).toContainText("Incorrect email or password.")
-})
-
 // const login = {
 //   url: 'https://rahulshettyacademy.com/client',
 //   username: 'test7lYM@gmail.com',
@@ -29,7 +29,8 @@ test("invalid login scenario", async ({})=>{
 //   incorrectPassword: 'abcd'
 // }
 
-// console.log(login.url)
+//  console.log(login.url)
+//  console.log(login["url"]);
 // console.log(login.username);
 // console.log(login.password);
 // console.log(login.incorrectPassword);

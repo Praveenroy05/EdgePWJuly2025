@@ -2,14 +2,24 @@
   "name": "qedgepwtsjune",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "dashboardPage": "npx playwright test tests/DPDDTestUsingExcel.spec.ts",
+    "fullTest": "npx playwright test",
+    "regressionTest": "npx playwright test --grep @regression",
+    "smokeTest": "npx playwright test --grep @smoke",
+    "lineReport": "npx playwright test tests/LoginPageTest.spec.ts --reporter=line",
+    "listReport": "npx playwright test tests/LoginPageTest.spec.ts --reporter=list",
+    "dotReport": "npx playwright test tests/LoginPageTest.spec.ts --reporter=dot"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.53.0",
-    "@types/node": "^24.0.3"
+    "@types/node": "^24.0.3",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.3.2"
   },
   "dependencies": {
     "pdf-parse": "^1.1.1",
