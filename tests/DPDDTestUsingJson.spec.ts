@@ -8,12 +8,11 @@ import productDatas from '../TestData/product.json'
 let loginPage
 let dashboardPage
 
-for(let product of productDatas){
 test.beforeEach(async ({page})=>{
     loginPage = new LoginPage(page)
     dashboardPage = new DashboardPage(page)
 })
-
+for(let product of productDatas){
 test(`Search and Add the product to the cart for ${product.productName}`, async ()=>{
     await loginPage.launchURL(product.url)
     await loginPage.loginIntoApplication(product.username, product.password)

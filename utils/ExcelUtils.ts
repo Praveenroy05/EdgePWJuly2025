@@ -19,12 +19,12 @@ export class ExcelUtils{
 
 }
 
-// Array - Inheritence
-// GitHub
-// Jenkins
+// Jenkins - Allure report
+// Visual Testing
 
 // Basic API
-// Visual Testing
+// Array - Table
+
 
 
 

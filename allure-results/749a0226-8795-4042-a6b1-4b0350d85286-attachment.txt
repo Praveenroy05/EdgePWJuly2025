@@ -1,0 +1,5 @@
+Initialing the data
+Before each test case
+Please enter your name
+After each test case
+After all test cases

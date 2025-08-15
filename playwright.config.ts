@@ -23,7 +23,7 @@ export default defineConfig({
   workers: process.env.CI ? 20 : 5, // By default it will start 8 TCs in a parallel way
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['html'],['line'],['allure-playwright']],
-   timeout : 10000,
+  // timeout : 10000,
   // expect:{
   //   timeout:10000
   // },
@@ -36,7 +36,7 @@ export default defineConfig({
     trace: 'on',
     screenshot : 'on',
     video : 'on',
-    headless : true,
+    headless : false,
   },
 
   /* Configure projects for major browsers */
