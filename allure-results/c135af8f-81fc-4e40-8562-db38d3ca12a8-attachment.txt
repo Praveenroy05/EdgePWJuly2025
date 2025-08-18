@@ -1,0 +1,7 @@
+Total rows in table: 7
+Row 1: BookName: Learn Selenium, Author: Amit, Subject: Selenium, Price: 300
+Row 2: BookName: Learn Java, Author: Mukesh, Subject: Java, Price: 500
+Row 3: BookName: Learn JS, Author: Animesh, Subject: Javascript, Price: 300
+Row 4: BookName: Master In Selenium, Author: Mukesh, Subject: Selenium, Price: 3000
+Row 5: BookName: Master In Java, Author: Amod, Subject: JAVA, Price: 2000
+Row 6: BookName: Master In JS, Author: Amit, Subject: Javascript, Price: 1000
